@@ -19,7 +19,47 @@
 </script>
 
 <svelte:head>
-  <title>Political Compass</title>
+  <title>Political Compass - 8-Axis Political Assessment</title>
+  <meta
+    name="description"
+    content="Discover where you stand across eight dimensions of political thought. A sophisticated 25-question assessment covering economic, civil, diplomatic, social, technology, environment, governance, and justice axes."
+  />
+  <meta
+    name="keywords"
+    content="political compass, political test, political quiz, 8 axis, political assessment, political beliefs, ideology test"
+  />
+  <meta
+    property="og:title"
+    content="Political Compass - 8-Axis Political Assessment"
+  />
+  <meta
+    property="og:description"
+    content="Discover where you stand across eight dimensions of political thought. Take the 25-question assessment."
+  />
+  <meta property="og:url" content="https://political-compass.judekim.ca" />
+  <meta
+    name="twitter:title"
+    content="Political Compass - 8-Axis Political Assessment"
+  />
+  <meta
+    name="twitter:description"
+    content="Discover where you stand across eight dimensions of political thought."
+  />
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Political Compass",
+    description:
+      "8-axis political compass test with 25 sophisticated questions",
+    url: "https://political-compass.judekim.ca",
+    applicationCategory: "EducationalApplication",
+    operatingSystem: "Any",
+    author: {
+      "@type": "Person",
+      name: "Jude Kim",
+      url: "https://judekim.ca",
+    },
+  })}</script>`}
 </svelte:head>
 
 <main class="min-h-screen flex flex-col justify-between p-8 sm:p-12 lg:p-16">

@@ -71,9 +71,9 @@
 </script>
 
 <svelte:head>
-  <title
-    >Question {quizState.progress.current} of {quizState.progress.total}</title
-  >
+  <title>Question {quizState.progress.current} of {quizState.progress.total} - Political Compass</title>
+  <meta name="description" content="Answer 25 thought-provoking questions to discover your political position across 8 dimensions." />
+  <meta name="robots" content="noindex" />
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} />

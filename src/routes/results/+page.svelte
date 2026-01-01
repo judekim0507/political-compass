@@ -15,6 +15,20 @@
   const similarities = $derived(findSimilarFigures(data.results, 3));
   const topMatch = $derived(similarities[0]);
 
+  const pageUrl = $derived(
+    `https://political-compass.judekim.ca/results?r=${data.encoded}`
+  );
+  const pageTitle = $derived(
+    topMatch
+      ? `Political Compass Results - Most similar to ${topMatch.figure.name}`
+      : "Political Compass Results"
+  );
+  const pageDescription = $derived(
+    topMatch
+      ? `My 8-axis political compass results: ${Math.round(topMatch.similarity)}% match with ${topMatch.figure.name}. Take the test to discover your political position.`
+      : "View my 8-axis political compass results across economic, civil, diplomatic, social, technology, environment, governance, and justice dimensions."
+  );
+
   let copied = $state(false);
   let activeTab = $state<"radar" | "3d">("radar");
 
@@ -48,7 +62,14 @@
 </script>
 
 <svelte:head>
-  <title>Your Results</title>
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  <link rel="canonical" href={pageUrl} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:url" content={pageUrl} />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDescription} />
 </svelte:head>
 
 <main class="min-h-screen bg-[var(--bg)]">
@@ -241,7 +262,9 @@
       <div
         class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
-        <p class="text-sm text-[var(--fg-muted)]">For educational purposes only.</p>
+        <p class="text-sm text-[var(--fg-muted)]">
+          For educational purposes only.
+        </p>
         <div class="flex gap-6">
           <a href="/" class="text-sm font-medium hover:underline">Take Again</a>
           <button
