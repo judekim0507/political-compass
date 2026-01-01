@@ -2,7 +2,7 @@
   import "./layout.css";
   import favicon from "$lib/assets/favicon.svg";
   import "$lib/stores/theme.svelte";
-  import { Analytics } from "@vercel/analytics/svelte";
+  import { injectAnalytics } from "@vercel/analytics/sveltekit";
 
   let { children } = $props();
 
@@ -21,4 +21,3 @@
   <meta name="twitter:creator" content="@imjudekim" />
 </svelte:head>
 {@render children()}
-<Analytics />
