@@ -2,12 +2,15 @@
   import "./layout.css";
   import favicon from "$lib/assets/favicon.svg";
   import "$lib/stores/theme.svelte";
+  import { dev } from "$app/environment";
   import { injectAnalytics } from "@vercel/analytics/sveltekit";
 
   let { children } = $props();
 
   const siteName = "Political Compass";
   const siteUrl = "https://political-compass.judekim.ca";
+
+  injectAnalytics({ mode: dev ? "development" : "production" });
 </script>
 
 <svelte:head>
