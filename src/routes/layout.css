@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --font-heading: "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
