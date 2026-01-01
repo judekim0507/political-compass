@@ -54,8 +54,23 @@
         multidimensional.
       </p>
       <p>
-        Built by <a href="https://judekim.ca" class="underline hover:text-neutral-600">Jude Kim</a>
-        · <a href="https://github.com/judekim0507/political-compass" class="underline hover:text-neutral-600">Source</a>
+        Built by <a
+          href="https://judekim.ca"
+          class="hover:underline hover:text-neutral-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Jude Kim
+        </a>
+        ·
+        <a
+          href="https://github.com/judekim0507/political-compass"
+          class="hover:underline hover:text-neutral-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source Code
+        </a>
       </p>
     </div>
   </footer>

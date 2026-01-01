@@ -234,7 +234,9 @@
 
   <footer class="border-t-2 border-black">
     <div class="max-w-7xl mx-auto px-6 py-6 sm:py-8 space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div
+        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+      >
         <p class="text-sm text-neutral-500">For educational purposes only.</p>
         <div class="flex gap-6">
           <a href="/" class="text-sm font-medium hover:underline">Take Again</a>
@@ -247,8 +249,19 @@
         </div>
       </div>
       <p class="text-xs text-neutral-400">
-        Built by <a href="https://judekim.ca" class="underline hover:text-neutral-600">Jude Kim</a>
-        · <a href="https://github.com/judekim0507/political-compass" class="underline hover:text-neutral-600">Source</a>
+        Built by <a
+          href="https://judekim.ca"
+          class="hover:underline hover:text-neutral-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer">Jude Kim</a
+        >
+        ·
+        <a
+          href="https://github.com/judekim0507/political-compass"
+          class="hover:underline hover:text-neutral-600 transition-colors"
+          target="_blank"
+          rel="noopener noreferrer">Source Code</a
+        >
       </p>
     </div>
   </footer>
