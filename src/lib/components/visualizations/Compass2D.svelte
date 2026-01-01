@@ -14,15 +14,15 @@
 
 <div class="w-full max-w-[400px]">
 	<div class="relative pb-4 pt-6">
-		<div class="absolute top-0 left-1/2 -translate-x-1/2 text-xs font-medium text-neutral-400 whitespace-nowrap tracking-wide uppercase">
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 text-xs font-medium text-[var(--fg-subtle)] whitespace-nowrap tracking-wide uppercase">
 			Authority
 		</div>
 
-		<svg viewBox="0 0 {size} {size}" class="w-full h-auto border-2 border-black">
-			<rect x="0" y="0" width={size / 2} height={size / 2} fill="#fafafa" />
-			<rect x={size / 2} y="0" width={size / 2} height={size / 2} fill="#f5f5f5" />
-			<rect x="0" y={size / 2} width={size / 2} height={size / 2} fill="#f5f5f5" />
-			<rect x={size / 2} y={size / 2} width={size / 2} height={size / 2} fill="#fafafa" />
+		<svg viewBox="0 0 {size} {size}" class="w-full h-auto border-2 border-[var(--border)]">
+			<rect x="0" y="0" width={size / 2} height={size / 2} class="fill-[var(--bg)]" />
+			<rect x={size / 2} y="0" width={size / 2} height={size / 2} class="fill-[var(--bg-subtle)]" />
+			<rect x="0" y={size / 2} width={size / 2} height={size / 2} class="fill-[var(--bg-subtle)]" />
+			<rect x={size / 2} y={size / 2} width={size / 2} height={size / 2} class="fill-[var(--bg)]" />
 
 			{#each [0.25, 0.5, 0.75] as ratio}
 				<line
@@ -30,7 +30,7 @@
 					y1="0"
 					x2={size * ratio}
 					y2={size}
-					stroke="#e5e5e5"
+					class="stroke-[var(--border-subtle)]"
 					stroke-width="1"
 				/>
 				<line
@@ -38,25 +38,25 @@
 					y1={size * ratio}
 					x2={size}
 					y2={size * ratio}
-					stroke="#e5e5e5"
+					class="stroke-[var(--border-subtle)]"
 					stroke-width="1"
 				/>
 			{/each}
 
-			<line x1={size / 2} y1="0" x2={size / 2} y2={size} stroke="#a3a3a3" stroke-width="1" />
-			<line x1="0" y1={size / 2} x2={size} y2={size / 2} stroke="#a3a3a3" stroke-width="1" />
+			<line x1={size / 2} y1="0" x2={size / 2} y2={size} class="stroke-[var(--fg-subtle)]" stroke-width="1" />
+			<line x1="0" y1={size / 2} x2={size} y2={size / 2} class="stroke-[var(--fg-subtle)]" stroke-width="1" />
 
-			<circle cx={x} cy={y} r="16" fill="black" />
-			<circle cx={x} cy={y} r="10" fill="white" />
-			<circle cx={x} cy={y} r="5" fill="black" />
+			<circle cx={x} cy={y} r="16" class="fill-[var(--accent)]" />
+			<circle cx={x} cy={y} r="10" class="fill-[var(--bg)]" />
+			<circle cx={x} cy={y} r="5" class="fill-[var(--accent)]" />
 		</svg>
 
-		<div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-xs font-medium text-neutral-400 whitespace-nowrap tracking-wide uppercase">
+		<div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-xs font-medium text-[var(--fg-subtle)] whitespace-nowrap tracking-wide uppercase">
 			Liberty
 		</div>
 	</div>
 
-	<div class="flex justify-between text-xs font-medium text-neutral-400 uppercase tracking-wide mt-2">
+	<div class="flex justify-between text-xs font-medium text-[var(--fg-subtle)] uppercase tracking-wide mt-2">
 		<span>Equality</span>
 		<span>Markets</span>
 	</div>

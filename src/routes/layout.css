@@ -3,6 +3,28 @@
 :root {
   --font-heading: "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
   --font-body: "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+
+  --bg: #ffffff;
+  --bg-subtle: #fafaf9;
+  --fg: #0c0a09;
+  --fg-muted: #78716c;
+  --fg-subtle: #a8a29e;
+  --border: #0c0a09;
+  --border-subtle: #e7e5e4;
+  --accent: #0c0a09;
+  --accent-fg: #ffffff;
+}
+
+.dark {
+  --bg: #1c1917;
+  --bg-subtle: #292524;
+  --fg: #fafaf9;
+  --fg-muted: #a8a29e;
+  --fg-subtle: #78716c;
+  --border: #fafaf9;
+  --border-subtle: #44403c;
+  --accent: #fafaf9;
+  --accent-fg: #1c1917;
 }
 
 * {
@@ -17,9 +39,10 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #000000;
+  background: var(--bg);
+  color: var(--fg);
   overflow-x: hidden;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 h1,
@@ -32,6 +55,6 @@ h6 {
 }
 
 ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--accent-fg);
 }

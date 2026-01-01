@@ -4,6 +4,7 @@
   import RadarChart from "$lib/components/visualizations/RadarChart.svelte";
   import Compass3D from "$lib/components/visualizations/Compass3D.svelte";
   import AxisBreakdown from "$lib/components/visualizations/AxisBreakdown.svelte";
+  import ThemeToggle from "$lib/components/ui/ThemeToggle.svelte";
   import { findSimilarFigures } from "$lib/scoring/similarity";
   import { axes } from "$lib/data/axes";
   import { browser } from "$app/environment";
@@ -50,17 +51,20 @@
   <title>Your Results</title>
 </svelte:head>
 
-<main class="min-h-screen bg-white">
-  <section class="border-b-2 border-black">
+<main class="min-h-screen bg-[var(--bg)]">
+  <section class="border-b-2 border-[var(--border)]">
     <div class="max-w-7xl mx-auto px-6 py-12 sm:py-24">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div class="space-y-8 order-2 lg:order-1">
           <div class="space-y-4">
-            <p
-              class="text-sm font-medium uppercase tracking-widest text-neutral-400"
-            >
-              Assessment Complete
-            </p>
+            <div class="flex items-center justify-between">
+              <p
+                class="text-sm font-medium uppercase tracking-widest text-[var(--fg-subtle)]"
+              >
+                Assessment Complete
+              </p>
+              <ThemeToggle />
+            </div>
             <h1
               class="text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-none"
             >
@@ -71,23 +75,23 @@
           <div class="flex flex-wrap gap-3">
             <button
               onclick={shareResults}
-              class="px-6 py-3 bg-black text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
+              class="px-6 py-3 bg-[var(--accent)] text-[var(--accent-fg)] text-sm font-medium hover:opacity-80 transition-opacity"
             >
               {copied ? "Link Copied" : "Share Results"}
             </button>
             <a
               href="/"
-              class="px-6 py-3 border-2 border-black text-sm font-medium hover:bg-neutral-100 transition-colors"
+              class="px-6 py-3 border-2 border-[var(--border)] text-sm font-medium hover:bg-[var(--bg-subtle)] transition-colors"
             >
               Retake
             </a>
           </div>
 
           {#if topMatch}
-            <div class="pt-8 border-t border-neutral-200">
-              <p class="text-sm text-neutral-500 mb-2">Closest Match</p>
+            <div class="pt-8 border-t border-[var(--border-subtle)]">
+              <p class="text-sm text-[var(--fg-muted)] mb-2">Closest Match</p>
               <p class="text-2xl font-medium">{topMatch.figure.name}</p>
-              <p class="text-neutral-500">{topMatch.figure.era}</p>
+              <p class="text-[var(--fg-muted)]">{topMatch.figure.era}</p>
             </div>
           {/if}
         </div>
@@ -99,31 +103,31 @@
     </div>
   </section>
 
-  <section class="border-b-2 border-black overflow-x-auto">
+  <section class="border-b-2 border-[var(--border)] overflow-x-auto">
     <div class="min-w-max">
       <div class="grid grid-cols-8">
         {#each axes as axis}
           {@const value = data.results[axis.id as AxisId]}
           <div
-            class="border-r-2 border-black last:border-r-0 p-4 sm:p-6 min-w-[90px] sm:min-w-[100px]"
+            class="border-r-2 border-[var(--border)] last:border-r-0 p-4 sm:p-6 min-w-[90px] sm:min-w-[100px]"
           >
             <p class="text-xl sm:text-3xl font-semibold">
               {value > 0 ? "+" : ""}{Math.round(value)}
             </p>
-            <p class="text-xs text-neutral-500 mt-1">{axis.name}</p>
+            <p class="text-xs text-[var(--fg-muted)] mt-1">{axis.name}</p>
           </div>
         {/each}
       </div>
     </div>
   </section>
 
-  <section class="border-b-2 border-black">
+  <section class="border-b-2 border-[var(--border)]">
     <div class="max-w-7xl mx-auto px-6 py-12 sm:py-24">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
         <div class="space-y-8">
           <div>
             <p
-              class="text-sm font-medium uppercase tracking-widest text-neutral-400 mb-4"
+              class="text-sm font-medium uppercase tracking-widest text-[var(--fg-subtle)] mb-4"
             >
               Breakdown
             </p>
@@ -136,7 +140,7 @@
           <div class="flex items-end justify-between gap-4">
             <div>
               <p
-                class="text-sm font-medium uppercase tracking-widest text-neutral-400 mb-4"
+                class="text-sm font-medium uppercase tracking-widest text-[var(--fg-subtle)] mb-4"
               >
                 Visualization
               </p>
@@ -144,22 +148,22 @@
                 {activeTab === "radar" ? "Radar View" : "3D Space"}
               </h2>
             </div>
-            <div class="flex border-2 border-black shrink-0">
+            <div class="flex border-2 border-[var(--border)] shrink-0">
               <button
                 onclick={() => (activeTab = "radar")}
                 class="px-3 sm:px-4 py-2 text-sm font-medium transition-colors {activeTab ===
                 'radar'
-                  ? 'bg-black text-white'
-                  : 'hover:bg-neutral-100'}"
+                  ? 'bg-[var(--accent)] text-[var(--accent-fg)]'
+                  : 'hover:bg-[var(--bg-subtle)]'}"
               >
                 Radar
               </button>
               <button
                 onclick={() => (activeTab = "3d")}
-                class="px-3 sm:px-4 py-2 text-sm font-medium border-l-2 border-black transition-colors {activeTab ===
+                class="px-3 sm:px-4 py-2 text-sm font-medium border-l-2 border-[var(--border)] transition-colors {activeTab ===
                 '3d'
-                  ? 'bg-black text-white'
-                  : 'hover:bg-neutral-100'}"
+                  ? 'bg-[var(--accent)] text-[var(--accent-fg)]'
+                  : 'hover:bg-[var(--bg-subtle)]'}"
               >
                 3D
               </button>
@@ -186,7 +190,7 @@
     <div class="max-w-7xl mx-auto px-6 py-12 sm:py-24">
       <div class="max-w-3xl">
         <p
-          class="text-sm font-medium uppercase tracking-widest text-neutral-400 mb-4"
+          class="text-sm font-medium uppercase tracking-widest text-[var(--fg-subtle)] mb-4"
         >
           Historical Comparison
         </p>
@@ -197,13 +201,13 @@
         <div class="space-y-4 sm:space-y-6">
           {#each similarities as { figure, similarity }, i}
             <div
-              class="flex gap-4 sm:gap-6 items-start p-4 sm:p-6 border-2 border-black {i ===
+              class="flex gap-4 sm:gap-6 items-start p-4 sm:p-6 border-2 border-[var(--border)] {i ===
               0
-                ? 'bg-neutral-50'
+                ? 'bg-[var(--bg-subtle)]'
                 : ''}"
             >
               <div
-                class="text-3xl sm:text-4xl font-semibold text-neutral-200 w-10 sm:w-12 shrink-0"
+                class="text-3xl sm:text-4xl font-semibold text-[var(--border-subtle)] w-10 sm:w-12 shrink-0"
               >
                 {String(i + 1).padStart(2, "0")}
               </div>
@@ -213,7 +217,7 @@
                     <h3 class="text-lg sm:text-xl font-semibold">
                       {figure.name}
                     </h3>
-                    <p class="text-sm text-neutral-500">{figure.era}</p>
+                    <p class="text-sm text-[var(--fg-muted)]">{figure.era}</p>
                   </div>
                   <div class="text-right shrink-0">
                     <p class="text-xl sm:text-2xl font-semibold">
@@ -221,7 +225,7 @@
                     </p>
                   </div>
                 </div>
-                <p class="text-sm sm:text-base text-neutral-600 mt-2">
+                <p class="text-sm sm:text-base text-[var(--fg-muted)] mt-2">
                   {figure.description}
                 </p>
               </div>
@@ -232,12 +236,12 @@
     </div>
   </section>
 
-  <footer class="border-t-2 border-black">
+  <footer class="border-t-2 border-[var(--border)]">
     <div class="max-w-7xl mx-auto px-6 py-6 sm:py-8 space-y-4">
       <div
         class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
       >
-        <p class="text-sm text-neutral-500">For educational purposes only.</p>
+        <p class="text-sm text-[var(--fg-muted)]">For educational purposes only.</p>
         <div class="flex gap-6">
           <a href="/" class="text-sm font-medium hover:underline">Take Again</a>
           <button
@@ -248,19 +252,19 @@
           </button>
         </div>
       </div>
-      <p class="text-xs text-neutral-400">
+      <p class="text-xs text-[var(--fg-subtle)]">
         Built by <a
           href="https://judekim.ca"
-          class="hover:underline hover:text-neutral-600 transition-colors"
+          class="underline hover:text-[var(--fg-muted)] transition-colors"
           target="_blank"
           rel="noopener noreferrer">Jude Kim</a
         >
         ·
         <a
           href="https://github.com/judekim0507/political-compass"
-          class="hover:underline hover:text-neutral-600 transition-colors"
+          class="underline hover:text-[var(--fg-muted)] transition-colors"
           target="_blank"
-          rel="noopener noreferrer">Source Code</a
+          rel="noopener noreferrer">Source</a
         >
       </p>
     </div>

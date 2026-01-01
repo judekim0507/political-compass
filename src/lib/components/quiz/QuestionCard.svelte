@@ -13,7 +13,7 @@
 
 <div class="space-y-8">
 	<div class="space-y-4">
-		<span class="text-sm font-medium text-neutral-500 uppercase tracking-wide">
+		<span class="text-sm font-medium text-[var(--fg-muted)] uppercase tracking-wide">
 			{question.category}
 		</span>
 		<p class="text-xl sm:text-2xl font-medium leading-relaxed">

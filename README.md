@@ -1,6 +1,6 @@
 # political compass
 
-8-axis political compass test. 50 questions, ~10 min.
+8-axis political compass test. 25 questions, ~5 min.
 
 ## axes
 
@@ -33,3 +33,4 @@ pnpm dev
 - compare results to 20 historical figures
 - shareable results via url
 - auto-saves progress locally
+- dark mode (system/light/dark)

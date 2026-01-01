@@ -1,5 +1,6 @@
 <script lang="ts">
   import { quizState } from "$lib/stores/quiz.svelte";
+  import ThemeToggle from "$lib/components/ui/ThemeToggle.svelte";
 
   function startQuiz() {
     quizState.reset();
@@ -22,9 +23,12 @@
 </svelte:head>
 
 <main class="min-h-screen flex flex-col justify-between p-8 sm:p-12 lg:p-16">
-  <header class="flex justify-between items-start">
-    <p class="text-sm text-neutral-400">Political Compass</p>
-    <p class="text-sm text-neutral-400">50 questions · ~10 min</p>
+  <header class="flex justify-between items-center">
+    <p class="text-sm text-[var(--fg-subtle)]">Political Compass</p>
+    <div class="flex items-center gap-4">
+      <p class="text-sm text-[var(--fg-subtle)]">25 questions</p>
+      <ThemeToggle />
+    </div>
   </header>
 
   <div class="max-w-2xl py-16">
@@ -36,7 +40,7 @@
     <a
       href="/quiz"
       onclick={startQuiz}
-      class="inline-block mt-12 px-8 py-4 bg-black text-white text-sm font-medium hover:bg-neutral-800 transition-colors"
+      class="inline-block mt-12 px-8 py-4 bg-[var(--accent)] text-[var(--accent-fg)] text-sm font-medium hover:opacity-80 transition-opacity"
     >
       Begin Assessment
     </a>
@@ -45,10 +49,12 @@
   <footer class="space-y-8">
     <div class="flex flex-wrap gap-x-6 gap-y-2">
       {#each axes as axis}
-        <span class="text-sm text-neutral-400">{axis}</span>
+        <span class="text-sm text-[var(--fg-subtle)]">{axis}</span>
       {/each}
     </div>
-    <div class="flex flex-wrap justify-between gap-4 text-xs text-neutral-400">
+    <div
+      class="flex flex-wrap justify-between gap-4 text-xs text-[var(--fg-subtle)]"
+    >
       <p class="max-w-md">
         For educational purposes only. Political beliefs are complex and
         multidimensional.
@@ -56,7 +62,7 @@
       <p>
         Built by <a
           href="https://judekim.ca"
-          class="hover:underline hover:text-neutral-600 transition-colors"
+          class="underline hover:text-[var(--fg-muted)] transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -65,11 +71,11 @@
         ·
         <a
           href="https://github.com/judekim0507/political-compass"
-          class="hover:underline hover:text-neutral-600 transition-colors"
+          class="underline hover:text-[var(--fg-muted)] transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Source Code
+          Source
         </a>
       </p>
     </div>

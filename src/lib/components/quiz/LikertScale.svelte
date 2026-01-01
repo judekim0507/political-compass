@@ -23,8 +23,8 @@
 			<button
 				class="flex-1 py-4 px-3 border-2 transition-all text-center
 					{value === option.value
-					? 'border-black bg-black text-white'
-					: 'border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400'}"
+					? 'border-[var(--border)] bg-[var(--accent)] text-[var(--accent-fg)]'
+					: 'border-[var(--border-subtle)] bg-[var(--bg)] text-[var(--fg-muted)] hover:border-[var(--fg-subtle)]'}"
 				onclick={() => onselect(option.value)}
 			>
 				<span class="block text-sm font-medium">{option.label}</span>
@@ -36,15 +36,15 @@
 			<button
 				class="flex-1 py-4 px-2 border-2 transition-all text-center
 					{value === option.value
-					? 'border-black bg-black text-white'
-					: 'border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400'}"
+					? 'border-[var(--border)] bg-[var(--accent)] text-[var(--accent-fg)]'
+					: 'border-[var(--border-subtle)] bg-[var(--bg)] text-[var(--fg-muted)] hover:border-[var(--fg-subtle)]'}"
 				onclick={() => onselect(option.value)}
 			>
 				<span class="block text-sm font-medium">{option.short}</span>
 			</button>
 		{/each}
 	</div>
-	<div class="flex justify-between text-xs text-neutral-500 px-1 sm:hidden">
+	<div class="flex justify-between text-xs text-[var(--fg-subtle)] px-1 sm:hidden">
 		<span>Strongly Disagree</span>
 		<span>Strongly Agree</span>
 	</div>

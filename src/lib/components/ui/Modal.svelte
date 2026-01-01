@@ -39,23 +39,23 @@
 		></button>
 
 		<div class="absolute inset-0 flex items-center justify-center p-6 pointer-events-none">
-			<div class="bg-white border-2 border-black w-full max-w-sm pointer-events-auto">
+			<div class="bg-[var(--bg)] border-2 border-[var(--border)] w-full max-w-sm pointer-events-auto">
 				<div class="p-6 space-y-4">
 					<h2 class="text-lg font-semibold">{title}</h2>
-					<div class="text-neutral-600">
+					<div class="text-[var(--fg-muted)]">
 						{@render children()}
 					</div>
 				</div>
-				<div class="flex border-t-2 border-black">
+				<div class="flex border-t-2 border-[var(--border)]">
 					<button
 						onclick={oncancel}
-						class="flex-1 px-6 py-4 text-sm font-medium hover:bg-neutral-100 transition-colors border-r-2 border-black"
+						class="flex-1 px-6 py-4 text-sm font-medium hover:bg-[var(--bg-subtle)] transition-colors border-r-2 border-[var(--border)]"
 					>
 						{cancelText}
 					</button>
 					<button
 						onclick={onconfirm}
-						class="flex-1 px-6 py-4 text-sm font-medium bg-black text-white hover:bg-neutral-800 transition-colors"
+						class="flex-1 px-6 py-4 text-sm font-medium bg-[var(--accent)] text-[var(--accent-fg)] hover:opacity-80 transition-colors"
 					>
 						{confirmText}
 					</button>

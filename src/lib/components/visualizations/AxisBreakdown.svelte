@@ -21,8 +21,8 @@
 					{value > 0 ? '+' : ''}{Math.round(value)}
 				</span>
 			</div>
-			<div class="relative h-2 bg-neutral-100">
-				<div class="absolute left-1/2 top-0 bottom-0 w-px bg-neutral-300"></div>
+			<div class="relative h-2 bg-[var(--bg-subtle)]">
+				<div class="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--border-subtle)]"></div>
 				{#if value !== 0}
 					<div
 						class="absolute top-0 bottom-0 transition-all"
@@ -33,7 +33,7 @@
 					></div>
 				{/if}
 			</div>
-			<div class="flex justify-between text-xs text-neutral-400">
+			<div class="flex justify-between text-xs text-[var(--fg-subtle)]">
 				<span>{axis.leftLabel}</span>
 				<span>{axis.rightLabel}</span>
 			</div>

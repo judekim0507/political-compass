@@ -48,7 +48,7 @@
 				return `${p.x},${p.y}`;
 			}).join(' ')}
 			fill="none"
-			stroke="#e5e5e5"
+			class="stroke-[var(--border-subtle)]"
 			stroke-width="1"
 		/>
 	{/each}
@@ -59,24 +59,24 @@
 			y1={center}
 			x2={getPoint(i, 100).x}
 			y2={getPoint(i, 100).y}
-			stroke="#e5e5e5"
+			class="stroke-[var(--border-subtle)]"
 			stroke-width="1"
 		/>
 	{/each}
 
-	<polygon points={polygonPoints} fill="rgba(0, 0, 0, 0.06)" stroke="black" stroke-width="2" />
+	<polygon points={polygonPoints} class="fill-[var(--accent)]/10 stroke-[var(--accent)]" stroke-width="2" />
 
 	{#each AXES as axis, i}
 		{@const point = getPoint(i, results[axis as AxisId])}
 		{@const labelPoint = getLabelPoint(i)}
 		{@const axisData = axes.find((a) => a.id === axis)}
-		<circle cx={point.x} cy={point.y} r="5" fill="black" />
+		<circle cx={point.x} cy={point.y} r="5" class="fill-[var(--accent)]" />
 		<text
 			x={labelPoint.x}
 			y={labelPoint.y}
 			text-anchor="middle"
 			dominant-baseline="middle"
-			class="text-[11px] font-medium uppercase tracking-wide fill-neutral-500"
+			class="text-[11px] font-medium uppercase tracking-wide fill-[var(--fg-muted)]"
 		>
 			{axisData?.name.slice(0, 4)}
 		</text>

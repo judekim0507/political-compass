@@ -5,6 +5,7 @@
   import QuestionCard from "$lib/components/quiz/QuestionCard.svelte";
   import Button from "$lib/components/ui/Button.svelte";
   import Modal from "$lib/components/ui/Modal.svelte";
+  import ThemeToggle from "$lib/components/ui/ThemeToggle.svelte";
   import type { LikertResponse } from "$lib/types";
   import { questions } from "$lib/data/questions";
 
@@ -83,15 +84,18 @@
       <button onclick={handleExit} class="text-sm font-medium hover:underline">
         Exit
       </button>
-      <span class="text-sm font-medium">
-        {quizState.progress.current} / {quizState.progress.total}
-      </span>
+      <div class="flex items-center gap-4">
+        <span class="text-sm font-medium">
+          {quizState.progress.current} / {quizState.progress.total}
+        </span>
+        <ThemeToggle />
+      </div>
     </div>
   </header>
 
-  <div class="w-full h-1 bg-neutral-200">
+  <div class="w-full h-1 bg-[var(--bg-subtle)]">
     <div
-      class="h-full bg-black transition-all duration-300"
+      class="h-full bg-[var(--accent)] transition-all duration-300"
       style="width: {quizState.progress.percentage}%"
     ></div>
   </div>
@@ -108,7 +112,7 @@
     </div>
   </div>
 
-  <footer class="p-6 border-t-2 border-black">
+  <footer class="p-6 border-t-2 border-[var(--border)]">
     <div class="max-w-3xl mx-auto">
       <div class="flex items-center justify-between gap-4">
         <div class="shrink-0">
@@ -125,12 +129,12 @@
           {#each questions as q, i}
             <button
               class="w-2 h-2 transition-colors
-								{i === quizState.currentIndex ? 'bg-black' : ''}
+								{i === quizState.currentIndex ? 'bg-[var(--accent)]' : ''}
 								{i !== quizState.currentIndex && quizState.hasAnswer(q.id)
-                ? 'bg-neutral-400'
+                ? 'bg-[var(--fg-subtle)]'
                 : ''}
 								{i !== quizState.currentIndex && !quizState.hasAnswer(q.id)
-                ? 'bg-neutral-200'
+                ? 'bg-[var(--border-subtle)]'
                 : ''}"
               onclick={() => quizState.goTo(i)}
               aria-label="Go to question {i + 1}"
@@ -161,7 +165,7 @@
   confirmText="Exit"
   cancelText="Continue"
 >
-  <p class="text-neutral-600">
+  <p class="text-[var(--fg-muted)]">
     Your progress will be lost. Are you sure you want to exit?
   </p>
 </Modal>
